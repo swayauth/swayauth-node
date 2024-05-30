@@ -219,7 +219,7 @@ const swayauth = new Swayauth({
   OrganizationSecret: '2fc0e83b-54.... organization'
 });
 
-swayauth.user.auth.signUp({ email: 'johndoe@gmail.com', password: '1234567plmnb' })
+swayauth.user.auth.signUp({ email: 'johndoe@gmail.com', password: '1234567plmnb' } as RegisterData)
   .then((data) => {
     console.log(data);
   })
