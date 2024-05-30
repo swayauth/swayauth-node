@@ -38,9 +38,18 @@ const swayauth = new Swayauth({
 
 Or using ES modules and async/await:
 
+```javascript
+import Swayauth from 'swayauth-node';
+const swayauth = new Swayauth({
+  ApplicationKey: '1710566580-cF....app', 
+  OrganizationSecret: '2fc0e83b-54.... organization'
+})
+```
+
 # Usage
 
-1.  Authentication: 
+1.  Authentication:
+    
     - [a. Login for client](#a-login-for-client)
     - [b. Login for user](#b-login-for-user)
     - [c. SignUp for user](#c-signup-for-user)
@@ -51,8 +60,8 @@ Or using ES modules and async/await:
     - [h. Enable 2FA for User](#h-enable-2fa-for-user)
     - [i. Verify 2FA for User](#i-verify-2fa-for-user)
     - [j. Decode all reference and token](#j-decode-all-reference-and-token)
-    
 2.  Account:
+    
     - [a. Get Profile Details for User and Client](#a-get-profile-details-for-user-and-client)
     - [b. Update Profile Details for User and Client](#b-update-profile-details-for-user-and-client)
     - [c. Change Profile Photo for User and Client](#c-change-profile-photo-for-user-and-client)
@@ -61,53 +70,52 @@ Or using ES modules and async/await:
     - [f. Update Company Profile for Client](#f-update-company-profile-for-client)
     - [g. Switch Account for Client](#g-switch-account-for-client)
     - [h. Get Linked Account for Client](#h-get-linked-account-for-client)
-    
 3.  Client Management:
-    - a. Statistics: 
-      - [i. Get Performance](#i-get-performance)
-      - [ii. Get SignUp Graph](#ii-get-signup-graph)
-      - [iii. Get Login Graph](#iii-get-login-graph)
-      - [iv. Get User Usage Graph](#iv-get-user-usage-graph)
-    - b. Wallet:
-      - [i. Balance](#i-balance)
-    - c. Users:
-      - [i. List Users](#i-list-users)
-      - [ii. Activate User Accounts](#ii-activate-user-accounts)
-      - [iii. Delete A User](#iii-delete-a-user)
-      - [iv. Deactivate User Accounts](#iv-deactivate-user-accounts)
-    - d. Credentials:
-      - [i. Get App Key](#i-get-app-key)
-      - [ii. Rotate App Key](#ii-rotate-app-key)
-    - e. Smtp:
-      - [i. Setup](#i-setup)
-      - [ii. Verify Smtp Details](#ii-verify-smtp-details)
-      - [iii. Get Smtp Details](#iii-get-smtp-details)
-      - [v. Update](#v-update)
-    - f. Organization:
-      - [i. Create Organization](#i-create-organization)
-      - [ii. Edit Organization](#ii-edit-organization)
-      - [iii. Change Organization Logo](#iii-change-organization-logo)
-      - [iv. List Organizations](#iv-list-organizations)
-      - [v. Delete Organization](#v-delete-organization)
-      - [vi. Create Organization Token](#vi-create-organization-token)
-      - [vii. Get Organization Tokens](#vii-get-organization-tokens)
-      - [viii. Edit Organization Token](#viii-edit-organization-token)
-      - [iix. Delete Organization Token](#iix-delete-organization-token)
-      - [ix. Get One Organization Details](#ix-get-one-organization-details)
-    - g. Team:
-      - [i. Create Team Member Account](#i-create-team-member-account)
-      - [ii. List Team Members](#ii-list-team-members)
-      - [iii. Change Team Member Permission](#iii-change-team-member-permission)
-    - h.  Cards:
-      -  [i. Get Saved Cards](#i-get-saved-cards)
-      - [ii. Delete Saved Card](#ii-delete-saved-card)
-      - [iii. Auto Save New Card Details During Payment](#iii-auto-save-new-card-details-during-payment)
-    - i.  Transactions:
-      - [i. Get Transaction History](#i-get-transaction-history)
-    - j.   Subscription:
-      * [i. Get Current Subscription Detail](#i-get-current-subscription-detail)
-    - - **NOTE:** majority of the apis on this list have a single parameter/last parameter as access token. If non was provided, the library uses the AccessToken added during the initial configuration, This only applies to specific api that requires it ie account api for both client & user.
     
+    - a. Statistics:
+        - [i. Get Performance](#i-get-performance)
+        - [ii. Get SignUp Graph](#ii-get-signup-graph)
+        - [iii. Get Login Graph](#iii-get-login-graph)
+        - [iv. Get User Usage Graph](#iv-get-user-usage-graph)
+    - b. Wallet:
+        - [i. Balance](#i-balance)
+    - c. Users:
+        - [i. List Users](#i-list-users)
+        - [ii. Activate User Accounts](#ii-activate-user-accounts)
+        - [iii. Delete A User](#iii-delete-a-user)
+        - [iv. Deactivate User Accounts](#iv-deactivate-user-accounts)
+    - d. Credentials:
+        - [i. Get App Key](#i-get-app-key)
+        - [ii. Rotate App Key](#ii-rotate-app-key)
+    - e. Smtp:
+        - [i. Setup](#i-setup)
+        - [ii. Verify Smtp Details](#ii-verify-smtp-details)
+        - [iii. Get Smtp Details](#iii-get-smtp-details)
+        - [v. Update](#v-update)
+    - f. Organization:
+        - [i. Create Organization](#i-create-organization)
+        - [ii. Edit Organization](#ii-edit-organization)
+        - [iii. Change Organization Logo](#iii-change-organization-logo)
+        - [iv. List Organizations](#iv-list-organizations)
+        - [v. Delete Organization](#v-delete-organization)
+        - [vi. Create Organization Token](#vi-create-organization-token)
+        - [vii. Get Organization Tokens](#vii-get-organization-tokens)
+        - [viii. Edit Organization Token](#viii-edit-organization-token)
+        - [iix. Delete Organization Token](#iix-delete-organization-token)
+        - [ix. Get One Organization Details](#ix-get-one-organization-details)
+    - g. Team:
+        - [i. Create Team Member Account](#i-create-team-member-account)
+        - [ii. List Team Members](#ii-list-team-members)
+        - [iii. Change Team Member Permission](#iii-change-team-member-permission)
+    - h.  Cards:
+        - [i. Get Saved Cards](#i-get-saved-cards)
+        - [ii. Delete Saved Card](#ii-delete-saved-card)
+        - [iii. Auto Save New Card Details During Payment](#iii-auto-save-new-card-details-during-payment)
+    - i.  Transactions:
+        - [i. Get Transaction History](#i-get-transaction-history)
+    - j.   Subscription:
+        - [i. Get Current Subscription Detail](#i-get-current-subscription-detail)
+    - - **NOTE:** majority of the apis on this list have a single parameter/last parameter as access token. If non was provided, the library uses the AccessToken added during the initial configuration, This only applies to specific api that requires it ie account api for both client & user.
 
 # 1\. Authentication
 
