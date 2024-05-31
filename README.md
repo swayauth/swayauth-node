@@ -23,13 +23,13 @@ Swayauth Node library provides convenient access to the Swayauth API from applic
 To install the package, run the following command in your Node terminal:
 
 ```javascript
-npm install swayauth-node
+npm install @swayauth/swayauth-node
 ```
 
 # Initialization
 
 ```javascript
-const Swayauth = require('swayauth-node');
+const Swayauth = require('@swayauth/swayauth-node');
 const swayauth = new Swayauth({
   ApplicationKey: '1710566580-cF....app', 
   OrganizationSecret: '2fc0e83b-54.... organization'
@@ -39,7 +39,7 @@ const swayauth = new Swayauth({
 Or using ES modules and async/await:
 
 ```javascript
-import Swayauth from 'swayauth-node';
+import Swayauth from '@swayauth/swayauth-node';
 const swayauth = new Swayauth({
   ApplicationKey: '1710566580-cF....app', 
   OrganizationSecret: '2fc0e83b-54.... organization'
@@ -124,7 +124,7 @@ const swayauth = new Swayauth({
 This lets client/admin login manually.
 
 ```javascript
-import Swayauth from 'swayauth';
+import Swayauth from '@swayauth/swayauth-node';
 
 const swayauth = new Swayauth({
   ApplicationKey: '1710566580-cF....app', 
@@ -160,7 +160,7 @@ Sample Response:
 This lets user login manually. Requires Organization Secret From Swayauth Dashboard
 
 ```javascript
-import Swayauth from 'swayauth';
+import Swayauth from '@swayauth/swayauth-node';
 
 const swayauth = new Swayauth({
   ApplicationKey: '1710566580-cF....app', 
@@ -212,7 +212,7 @@ export interface RegisterData {
 ```
 
 ```javascript
-import Swayauth from 'swayauth';
+import Swayauth from '@swayauth/swayauth-node';
 
 const swayauth = new Swayauth({
   ApplicationKey: '1710566580-cF....app', 

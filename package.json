@@ -1,5 +1,5 @@
 {
-  "name": "swayauth-node",
+  "name": "@swayauth/swayauth-node",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -10,7 +10,8 @@
   "description": "Swayauth nodejs library provides easy access to a collection of Swayauth apis for application on nodejs",
   "scripts": {
     "build": "tsup",
-    "view": "npx ts-node src/index",
+    "publish": "npm publish --access public",
+    "local": "npx ts-node src/index",
     "test": "jest"
   },
   "keywords": [
@@ -22,7 +23,11 @@
     "authentication"
   ],
   "author": "johnsonfash",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swayauth/swayauth-node.git"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
