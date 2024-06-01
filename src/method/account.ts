@@ -6,7 +6,7 @@ import URLS from "../utils/URLS";
 
 export const accountShared = ({ AccesssToken }: Pick<ConstructorProp, 'ApplicationKey' | 'AccesssToken'>) => Object.freeze({
   getAccount: async function (Access_Token = AccesssToken) {
-    if (!Access_Token) throw new Error('Access token token or  is required');
+    if (!Access_Token) throw new Error('Bearer token is required');
     const response = await axios.get(
       URLS.BASE_URL + 'account',
       {
@@ -19,7 +19,7 @@ export const accountShared = ({ AccesssToken }: Pick<ConstructorProp, 'Applicati
     return response.data as GetAccountResponse
   },
   updateAccount: async function (body: Omit<RegisterData, 'email' | 'password'>, Access_Token = AccesssToken) {
-    if (!Access_Token) throw new Error('Access token token or  is required');
+    if (!Access_Token) throw new Error('Bearer token is required');
 
     const response = await axios.post(
       URLS.BASE_URL + 'auth/register/user',
@@ -35,7 +35,7 @@ export const accountShared = ({ AccesssToken }: Pick<ConstructorProp, 'Applicati
   },
 
   changePassword: async function (body: { old_password: string, new_password: string }, Access_Token = AccesssToken) {
-    if (!Access_Token) throw new Error('Access token token or  is required');
+    if (!Access_Token) throw new Error('Bearer token is required');
 
     const response = await axios.post(
       URLS.BASE_URL + 'auth/register/user',
@@ -51,7 +51,7 @@ export const accountShared = ({ AccesssToken }: Pick<ConstructorProp, 'Applicati
   },
 
   changePhoto: async function (tmp_path: string, Access_Token = AccesssToken) {
-    if (!Access_Token) throw new Error('Access token token or  is required');
+    if (!Access_Token) throw new Error('Bearer token is required');
     const fileStream = fs.createReadStream(tmp_path);
     const fileName = path.basename(tmp_path);
     const response = await axios.post(
