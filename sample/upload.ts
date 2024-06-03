@@ -18,7 +18,7 @@
 //   const swayauth = new Swayauth({ ApplicationKey: '........' });
 
 //   const swayauth = new Swayauth({ ApplicationKey: '1710566580-cFcrb3ZXcE8zZXFzai8zcGdQU0FwWDF5OW0rWTdTMUFjc2kyeUc2NGUxOD0.app' });
-//   swayauth.client.management.subscription.imageUpload(buffer)
+//   swayauth.client.account.changePhoto(buffer, '_________access_token________')
 //     .then((response) => {
 //       console.log(response);
 //     })
