@@ -1,6 +1,6 @@
 {
   "name": "@swayauth/swayauth-node",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -25,7 +25,7 @@
   "author": "johnsonfash",
   "repository": {
     "type": "git",
-    "url": "https://github.com/swayauth/swayauth-node.git"
+    "url": "git+https://github.com/swayauth/swayauth-node.git"
   },
   "license": "MIT",
   "devDependencies": {

@@ -1,6 +1,6 @@
 # Introduction
 
-Swayauth Node library provides convenient access to the Swayauth API from applications written in server-side JavaScript.
+Swayauth Node library provides convenient access to the Swayauth API for applications written in server-side JavaScript. Visit [swayauth.com](https://swayauth.com) for more information.
 
 # Table of Content
 
