@@ -1,12 +1,13 @@
 import axios from "axios";
+import FormData from "form-data";
 import fs from 'fs';
-import path from 'path';
 import {
   ConstructorProp, CreateOrganizationData, CreateOrganizationResponse,
   CreateOrganizationResponseData, CreateTokenData, EditOrganization, GetTokenResponse,
   GetTokenResponseDatum, ListOrganizationResponse, ListOrganizationsParams, VerifyResponse
 } from "../../types";
 import URLS from "../../utils/URLS";
+import { getFileExtension } from "../../utils/getMimeType";
 
 export const organization = function ({ ApplicationKey, AccesssToken }: Pick<ConstructorProp, 'ApplicationKey' | 'AccesssToken'>) {
   return Object.freeze({
@@ -58,17 +59,21 @@ export const organization = function ({ ApplicationKey, AccesssToken }: Pick<Con
       return response.data as VerifyResponse<CreateOrganizationResponseData>
     },
 
-    changeOrganizationLogo: async function (org_id: string, tmp_path: string, Access_Token = AccesssToken) {
-      if (!Access_Token && !ApplicationKey) throw new Error('Organization Secret is required');
-      const fileStream = fs.createReadStream(tmp_path);
-      const fileName = path.basename(tmp_path);
+    changeOrganizationLogo: async function (org_id: string, tmp_file_path_or_buffer: string | Buffer, Access_Token = AccesssToken) {
+      if (!Access_Token && !ApplicationKey) throw new Error('Access Token or Application Key is required');
+      const formData = new FormData();
+      if (typeof tmp_file_path_or_buffer == 'string') {
+        formData.append('file', fs.createReadStream(tmp_file_path_or_buffer));
+      } else {
+        formData.append('file', tmp_file_path_or_buffer, 'file' + getFileExtension(tmp_file_path_or_buffer));
+      }
       const response = await axios.patch(
         URLS.BASE_URL + 'client/organizations/' + org_id + '/photo',
-        fileStream,
+        formData,
         {
           headers: {
-            'Content-Type': 'application/octet-stream',
-            'Content-Disposition': `attachment; filename="${fileName}"`,
+            ...formData.getHeaders(),
+            'Application-Key': ApplicationKey,
             'Authorization': `Bearer ${Access_Token}`,
           }
         }
