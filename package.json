@@ -1,6 +1,6 @@
 {
   "name": "@swayauth/swayauth-node",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -10,7 +10,7 @@
   "description": "Swayauth nodejs library provides easy access to a collection of Swayauth apis for application on nodejs",
   "scripts": {
     "build": "tsup",
-    "upload": "npm publish --access public",
+    "publish": "npm publish --access public",
     "dev": "npx ts-node src/index",
     "test": "jest"
   },
