@@ -22,7 +22,7 @@ export const accountShared = ({ AccesssToken }: Pick<ConstructorProp, 'Applicati
   updateAccount: async function (body: Omit<RegisterData, 'email' | 'password'>, Access_Token = AccesssToken) {
     if (!Access_Token) throw new Error('Bearer token is required');
 
-    const response = await axios.post(
+    const response = await axios.patch(
       URLS.BASE_URL + 'auth/register/user',
       body,
       {
@@ -38,7 +38,7 @@ export const accountShared = ({ AccesssToken }: Pick<ConstructorProp, 'Applicati
   changePassword: async function (body: { old_password: string, new_password: string }, Access_Token = AccesssToken) {
     if (!Access_Token) throw new Error('Bearer token is required');
 
-    const response = await axios.post(
+    const response = await axios.patch(
       URLS.BASE_URL + 'auth/register/user',
       body,
       {
@@ -59,7 +59,7 @@ export const accountShared = ({ AccesssToken }: Pick<ConstructorProp, 'Applicati
     } else {
       formData.append('file', tmp_file_path_or_buffer, 'file' + getFileExtension(tmp_file_path_or_buffer));
     }
-    const response = await axios.post(
+    const response = await axios.patch(
       URLS.BASE_URL + 'auth/register/user',
       formData,
       {

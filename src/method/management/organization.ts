@@ -147,7 +147,7 @@ export const organization = function ({ ApplicationKey, AccesssToken }: Pick<Con
 
     editToken: async function (token_id: string, body: CreateTokenData, Access_Token = AccesssToken) {
       if (!Access_Token && !ApplicationKey) throw new Error('Application key or accesss token or  is required');
-      const response = await axios.post(
+      const response = await axios.patch(
         URLS.BASE_URL + 'client/organizations/tokens/' + token_id,
         body,
         {

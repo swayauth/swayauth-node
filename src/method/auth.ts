@@ -75,7 +75,7 @@ export const auth = ({ ApplicationKey, OrganizationSecret, type }: Pick<Construc
   changeForgotPassword: async function (prop: ChangeForgotPassword) {
     if (!OrganizationSecret) throw new Error('Organization Secret is required');
 
-    const response = await axios.post(
+    const response = await axios.patch(
       URLS.BASE_URL + 'auth/forgot-password/new-password',
       prop,
       {
