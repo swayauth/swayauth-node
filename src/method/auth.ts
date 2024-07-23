@@ -40,6 +40,22 @@ export const auth = ({ ApplicationKey, OrganizationSecret, type }: Pick<Construc
     return response.data as RegisterSuccess
   },
 
+  resendSignUpToken: async function (prop: { email: string }) {
+    if (!OrganizationSecret) throw new Error('Organization Secret is required');
+
+    const response = await axios.post(
+      URLS.BASE_URL + 'auth/register/resend-code',
+      prop,
+      {
+        headers: {
+          'Organization-Secret': OrganizationSecret,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+    return response.data as RegisterSuccess
+  },
+
   verifySignUp: async function (prop: VerifySignUpData) {
     const response = await axios.post(
       URLS.BASE_URL + 'auth/register/verify',

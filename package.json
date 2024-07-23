@@ -10,7 +10,7 @@
   "description": "Swayauth nodejs library provides easy access to a collection of Swayauth apis for application on nodejs",
   "scripts": {
     "build": "tsup",
-    "publish": "npm publish --access public",
+    "update": "npm publish --access public",
     "dev": "npx ts-node src/index",
     "test": "jest"
   },
