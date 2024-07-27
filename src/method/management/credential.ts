@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ConstructorProp, GetAppKeyResponse } from "../../types";
+import { ConstructorProp, GetAppKeyResponse, GetJwtyResponse } from "../../types";
 import URLS from "../../utils/URLS";
 
 export const credential = function ({ ApplicationKey, AccesssToken }: Pick<ConstructorProp, 'ApplicationKey' | 'AccesssToken'>) {
@@ -33,7 +33,7 @@ export const credential = function ({ ApplicationKey, AccesssToken }: Pick<Const
           }
         }
       );
-      return response.data as GetAppKeyResponse
+      return response.data as GetJwtyResponse
     },
 
     rotateAppKey: async function (Access_Token = AccesssToken) {
