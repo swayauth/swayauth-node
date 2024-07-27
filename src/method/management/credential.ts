@@ -19,6 +19,23 @@ export const credential = function ({ ApplicationKey, AccesssToken }: Pick<Const
       return response.data as GetAppKeyResponse
     },
 
+
+    verifyJwt: async function (jwt: string, Access_Token = AccesssToken) {
+      if (!Access_Token && !ApplicationKey) throw new Error('Application key or accesss token or  is required');
+      const response = await axios.post(
+        URLS.BASE_URL + 'client/credentials/jwt',
+        { jwt },
+        {
+          headers: {
+            'Application-Key': ApplicationKey,
+            'Authorization': `Bearer ${Access_Token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      return response.data as GetAppKeyResponse
+    },
+
     rotateAppKey: async function (Access_Token = AccesssToken) {
       if (!Access_Token && !ApplicationKey) throw new Error('Application key or accesss token or  is required');
       const response = await axios.put(
